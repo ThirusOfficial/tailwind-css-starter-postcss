@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "postcss ./src/styles.css -o ./public/dist/styles.css",
-    "watch": "watch 'npm run build' ./public --ignoreDirectoryPattern=/dist/",
+    "watch": "onchange 'tailwind.config.js' './public/**/*.html' './src/**/*.css' -- npm run build",
     "prod": "NODE_ENV=production postcss ./src/styles.css -o ./public/dist/styles.css"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.2.1",
+    "onchange": "^7.1.0",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.0.2",
     "watch": "^1.0.2"
